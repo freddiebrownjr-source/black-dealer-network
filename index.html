@@ -1,463 +1,638 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Black Dealer Network | The National Network for Black Auto Dealers</title>
-<meta name="description" content="Black Dealer Network is the national network for Black auto dealers focused on growth, access, capital, partnerships, advocacy, and ownership." />
-<link rel="icon" href="assets/favicon.png" />
-<style>
-:root{
-  --black:#050505;
-  --deep:#000;
-  --charcoal:#101010;
-  --gold:#C99735;
-  --gold2:#E7BE62;
-  --gold3:#8D6418;
-  --white:#fff;
-  --muted:#D8D8D8;
-  --light:#F6F5F1;
-  --line:rgba(255,255,255,.11);
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  background:var(--black);
-  color:var(--white);
-}
-a{text-decoration:none;color:inherit}
-.container{width:min(1240px,calc(100% - 44px));margin:auto}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Black Dealer Network | The National Network for Black Auto Dealers</title>
+  <meta name="description" content="Black Dealer Network is the national network for Black auto dealers focused on ownership, growth, access to capital, partnerships, advocacy, and generational wealth." />
+  <link rel="icon" href="assets/favicon.png" />
+  <style>
+    :root{
+      --black:#050505;
+      --black2:#090909;
+      --charcoal:#111111;
+      --gold:#C99735;
+      --gold2:#E7BE62;
+      --gold3:#8A6218;
+      --white:#ffffff;
+      --cream:#F7F4EC;
+      --gray:#626262;
+      --line:#E7E1D6;
+    }
 
-.site-header{
-  position:sticky;
-  top:0;
-  z-index:50;
-  background:rgba(0,0,0,.96);
-  border-bottom:1px solid rgba(255,255,255,.08);
-  backdrop-filter:blur(14px);
-}
-.nav{
-  height:132px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:28px;
-}
-.logo-link{
-  display:flex;
-  align-items:center;
-}
-.site-logo{
-  width:175px;
-  height:auto;
-  display:block;
-  object-fit:contain;
-  filter:drop-shadow(0 14px 26px rgba(201,151,53,.18));
-}
-.nav-links{
-  display:flex;
-  align-items:center;
-  gap:34px;
-  font-size:13px;
-  font-weight:800;
-  text-transform:uppercase;
-  letter-spacing:.02em;
-}
-.nav-links a{
-  opacity:.9;
-  position:relative;
-  padding:10px 0;
-}
-.nav-links a:hover,
-.nav-links a.active{opacity:1;color:var(--gold2)}
-.nav-links a.active:after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:-18px;
-  width:46px;
-  height:3px;
-  background:var(--gold);
-}
-.nav-cta,.btn-gold{
-  background:linear-gradient(180deg,var(--gold2),var(--gold));
-  color:#050505;
-  padding:16px 28px;
-  border-radius:8px;
-  font-size:14px;
-  font-weight:900;
-  text-transform:uppercase;
-  box-shadow:0 18px 38px rgba(201,151,53,.18);
-}
-.nav-cta:hover,.btn-gold:hover{transform:translateY(-2px)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      background:var(--black);
+      color:var(--white);
+      line-height:1.5;
+      overflow-x:hidden;
+    }
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1260px,calc(100% - 48px));margin:0 auto}
 
-.hero{
-  position:relative;
-  min-height:720px;
-  overflow:hidden;
-  background:
-    radial-gradient(circle at 73% 42%,rgba(201,151,53,.24),rgba(0,0,0,0) 33%),
-    linear-gradient(90deg,#050505 0%,#070707 48%,#0c0c0c 100%);
-  border-bottom:1px solid rgba(201,151,53,.4);
-}
-.hero:after{
-  content:"";
-  position:absolute;
-  right:-6vw;
-  top:60px;
-  width:58vw;
-  height:610px;
-  background:
-    radial-gradient(circle at 38% 44%,rgba(255,255,255,.12),rgba(255,255,255,0) 18%),
-    linear-gradient(155deg,rgba(255,255,255,.12),rgba(255,255,255,.015) 35%,rgba(0,0,0,.55)),
-    #080808;
-  border-radius:300px 0 0 110px;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 0 100px rgba(0,0,0,.8);
-  opacity:.92;
-}
-.car-line{
-  position:absolute;
-  right:0;
-  top:240px;
-  width:48vw;
-  height:3px;
-  background:linear-gradient(90deg,rgba(201,151,53,0),rgba(201,151,53,.72),rgba(201,151,53,0));
-  z-index:2;
-}
-.headlight{
-  position:absolute;
-  right:31vw;
-  top:355px;
-  width:235px;
-  height:47px;
-  border:6px solid rgba(255,255,255,.95);
-  border-top-color:rgba(255,255,255,.34);
-  border-radius:40px 12px 34px 10px;
-  transform:skewX(-18deg);
-  box-shadow:0 0 24px rgba(255,255,255,.35);
-  z-index:3;
-}
-.grill{
-  position:absolute;
-  right:8vw;
-  top:420px;
-  width:310px;
-  height:150px;
-  background:repeating-linear-gradient(0deg,rgba(201,151,53,.34) 0 3px,rgba(255,255,255,.035) 3px 18px);
-  opacity:.65;
-  z-index:3;
-}
+    .site-header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:#000;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .nav{
+      min-height:124px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:28px;
+    }
+    .logo-link{display:flex;align-items:center}
+    .site-logo{
+      width:165px;
+      height:auto;
+      display:block;
+      object-fit:contain;
+      filter:drop-shadow(0 12px 26px rgba(201,151,53,.18));
+    }
+    .nav-menu{
+      display:flex;
+      align-items:center;
+      gap:34px;
+      color:#fff;
+      font-size:13px;
+      font-weight:900;
+      letter-spacing:.02em;
+      text-transform:uppercase;
+    }
+    .nav-menu a{
+      opacity:.92;
+      position:relative;
+      padding:12px 0;
+    }
+    .nav-menu a:hover,.nav-menu .active{opacity:1;color:var(--gold2)}
+    .nav-menu .active:after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-22px;
+      width:46px;
+      height:3px;
+      background:var(--gold);
+    }
+    .cta,.btn-primary{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(180deg,#EBC76E 0%,#C99735 100%);
+      color:#050505;
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:8px;
+      padding:15px 28px;
+      font-size:14px;
+      font-weight:950;
+      text-transform:uppercase;
+      letter-spacing:.02em;
+      box-shadow:0 18px 44px rgba(201,151,53,.24);
+      transition:.22s ease;
+    }
+    .cta:hover,.btn-primary:hover{transform:translateY(-2px);box-shadow:0 22px 54px rgba(201,151,53,.32)}
+    .btn-secondary{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border:1px solid var(--gold);
+      color:#fff;
+      border-radius:8px;
+      padding:15px 28px;
+      font-size:14px;
+      font-weight:900;
+      text-transform:uppercase;
+      transition:.22s ease;
+      background:rgba(255,255,255,.02);
+    }
+    .btn-secondary:hover{transform:translateY(-2px);background:rgba(201,151,53,.12)}
 
-.hero-inner{
-  position:relative;
-  z-index:5;
-  min-height:720px;
-  display:flex;
-  align-items:center;
-}
-.hero-copy{
-  max-width:650px;
-  padding:56px 0 70px;
-}
-.hero-logo{
-  width:420px;
-  max-width:100%;
-  margin-bottom:28px;
-  display:block;
-  filter:drop-shadow(0 26px 45px rgba(0,0,0,.45));
-}
-.pill{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  padding:9px 15px;
-  border:1px solid rgba(201,151,53,.45);
-  border-radius:999px;
-  background:rgba(255,255,255,.045);
-  color:#fff;
-  font-size:14px;
-  font-weight:800;
-  text-transform:uppercase;
-  margin-bottom:25px;
-}
-.pill-dot{width:10px;height:10px;border-radius:999px;background:var(--gold);box-shadow:0 0 15px rgba(201,151,53,.8)}
-h1{
-  font-size:clamp(48px,6vw,82px);
-  line-height:.98;
-  letter-spacing:-.055em;
-  font-weight:950;
-  text-transform:uppercase;
-  margin-bottom:24px;
-}
-.gold-text{
-  background:linear-gradient(180deg,#F6D98D 0%,#C99735 55%,#8B6217 100%);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-.gold-line{width:74px;height:3px;background:var(--gold);margin:24px 0}
-.lead{
-  font-size:22px;
-  font-weight:800;
-  margin-bottom:14px;
-}
-.hero-copy p:not(.lead){
-  color:#ddd;
-  font-size:18px;
-  line-height:1.65;
-  max-width:610px;
-}
-.actions{
-  display:flex;
-  gap:18px;
-  margin-top:36px;
-  flex-wrap:wrap;
-}
-.btn-outline{
-  border:1px solid var(--gold);
-  color:#fff;
-  padding:16px 28px;
-  border-radius:8px;
-  font-size:14px;
-  font-weight:900;
-  text-transform:uppercase;
-}
+    .hero{
+      position:relative;
+      min-height:680px;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 69% 47%,rgba(201,151,53,.22),rgba(0,0,0,0) 33%),
+        linear-gradient(90deg,#050505 0%,#080808 48%,#050505 100%);
+      border-bottom:1px solid rgba(201,151,53,.35);
+    }
+    .hero:before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(90deg,rgba(0,0,0,.94) 0%,rgba(0,0,0,.70) 44%,rgba(0,0,0,.18) 73%,rgba(0,0,0,.65) 100%);
+      z-index:1;
+    }
+    .hero-car{
+      position:absolute;
+      right:-2vw;
+      top:0;
+      bottom:0;
+      width:56vw;
+      min-width:650px;
+      background-image:url("assets/hero-car.png");
+      background-repeat:no-repeat;
+      background-position:center right;
+      background-size:cover;
+      opacity:.92;
+      z-index:0;
+      filter:contrast(1.08) saturate(1.05);
+    }
+    .hero-inner{
+      position:relative;
+      z-index:3;
+      min-height:680px;
+      display:flex;
+      align-items:center;
+      padding:58px 0 86px;
+    }
+    .hero-copy{max-width:640px}
+    .hero-logo{
+      width:380px;
+      max-width:100%;
+      height:auto;
+      display:block;
+      margin:0 0 28px;
+      filter:drop-shadow(0 24px 46px rgba(0,0,0,.55));
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:9px;
+      border:1px solid rgba(201,151,53,.52);
+      background:rgba(255,255,255,.05);
+      border-radius:999px;
+      padding:8px 14px;
+      color:#fff;
+      font-size:13px;
+      font-weight:900;
+      letter-spacing:.03em;
+      text-transform:uppercase;
+      margin-bottom:24px;
+      backdrop-filter:blur(8px);
+    }
+    .dot{width:9px;height:9px;border-radius:999px;background:var(--gold);box-shadow:0 0 16px rgba(201,151,53,.9)}
+    h1{
+      font-size:clamp(44px,6vw,78px);
+      line-height:.98;
+      letter-spacing:-.055em;
+      text-transform:uppercase;
+      font-weight:950;
+      margin-bottom:22px;
+    }
+    .gold-text{
+      color:var(--gold);
+      background:linear-gradient(180deg,#F4D483 0%,#C99735 54%,#9B701C 100%);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+    .gold-line{width:72px;height:3px;background:var(--gold);margin:22px 0}
+    .lead{font-size:22px;font-weight:850;margin-bottom:12px}
+    .hero-copy p:not(.lead){
+      color:#dddddd;
+      font-size:18px;
+      line-height:1.65;
+      max-width:610px;
+    }
+    .actions{display:flex;gap:18px;flex-wrap:wrap;margin-top:34px}
 
-.feature-wrap{
-  background:#fff;
-  color:#111;
-  position:relative;
-  z-index:10;
-}
-.features{
-  transform:translateY(-45px);
-  background:#fff;
-  border:1px solid #E8E3DA;
-  border-radius:18px;
-  box-shadow:0 24px 70px rgba(0,0,0,.22);
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  overflow:hidden;
-}
-.feature{
-  padding:30px 28px;
-  display:grid;
-  grid-template-columns:56px 1fr;
-  gap:18px;
-  align-items:center;
-  border-right:1px solid #E8E3DA;
-}
-.feature:last-child{border-right:0}
-.icon{
-  width:48px;
-  height:48px;
-  border:2px solid var(--gold);
-  color:var(--gold);
-  border-radius:999px;
-  display:grid;
-  place-items:center;
-  font-size:24px;
-  font-weight:900;
-}
-.feature h3{
-  font-size:16px;
-  text-transform:uppercase;
-  margin-bottom:6px;
-}
-.feature p{
-  color:#444;
-  font-size:14px;
-  line-height:1.45;
-}
+    .feature-band{
+      background:#fff;
+      position:relative;
+      z-index:8;
+      color:#080808;
+    }
+    .features{
+      transform:translateY(-48px);
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      overflow:hidden;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      box-shadow:0 26px 70px rgba(0,0,0,.22);
+    }
+    .feature{
+      display:grid;
+      grid-template-columns:58px 1fr;
+      gap:18px;
+      padding:30px 28px;
+      align-items:center;
+      border-right:1px solid var(--line);
+    }
+    .feature:last-child{border-right:none}
+    .icon{
+      width:50px;
+      height:50px;
+      border-radius:999px;
+      border:2px solid var(--gold);
+      color:var(--gold);
+      display:grid;
+      place-items:center;
+      font-size:24px;
+      font-weight:950;
+    }
+    .feature h3{
+      text-transform:uppercase;
+      font-size:15px;
+      letter-spacing:-.02em;
+      margin-bottom:5px;
+    }
+    .feature p{font-size:14px;color:#444;line-height:1.45}
 
-.about{
-  background:#fff;
-  color:#080808;
-  padding:40px 0 100px;
-}
-.about-grid{
-  display:grid;
-  grid-template-columns:.9fr 1.1fr;
-  gap:64px;
-  align-items:center;
-}
-.label{
-  color:var(--gold);
-  text-transform:uppercase;
-  font-size:13px;
-  letter-spacing:.12em;
-  font-weight:900;
-  margin-bottom:14px;
-}
-h2{
-  font-size:clamp(38px,4.8vw,62px);
-  line-height:1.03;
-  text-transform:uppercase;
-  letter-spacing:-.055em;
-}
-.about p{
-  color:#333;
-  font-size:18px;
-  line-height:1.75;
-  margin-top:20px;
-}
-.about strong{color:#000}
-.photo-card{
-  min-height:390px;
-  border-radius:16px;
-  overflow:hidden;
-  position:relative;
-  background:
-    linear-gradient(180deg,rgba(201,151,53,.28),rgba(0,0,0,.65)),
-    radial-gradient(circle at 50% 30%,rgba(255,255,255,.28),rgba(255,255,255,0) 34%),
-    linear-gradient(120deg,#D6A956,#21170A);
-  box-shadow:0 22px 70px rgba(0,0,0,.14);
-}
-.photo-card:before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    repeating-linear-gradient(90deg,transparent 0 55px,rgba(0,0,0,.22) 55px 85px,transparent 85px 130px);
-  opacity:.5;
-}
-.stats{
-  position:absolute;
-  left:28px;
-  right:28px;
-  bottom:24px;
-  background:#050505;
-  color:#fff;
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  border-radius:12px;
-  overflow:hidden;
-}
-.stat{
-  padding:28px 18px;
-  text-align:center;
-  border-right:1px solid rgba(201,151,53,.8);
-}
-.stat:last-child{border-right:0}
-.stat strong{display:block;color:var(--gold);font-size:36px}
-.stat span{display:block;color:#fff;text-transform:uppercase;font-size:12px;margin-top:8px;line-height:1.35}
+    .about{
+      background:#fff;
+      color:#080808;
+      padding:32px 0 100px;
+    }
+    .about-grid{
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
+      gap:64px;
+      align-items:center;
+    }
+    .label{
+      color:var(--gold);
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:13px;
+      font-weight:950;
+      margin-bottom:14px;
+    }
+    h2{
+      font-size:clamp(38px,5vw,62px);
+      line-height:1.02;
+      letter-spacing:-.055em;
+      text-transform:uppercase;
+      margin-bottom:20px;
+    }
+    .about p{
+      color:#333;
+      font-size:18px;
+      line-height:1.75;
+      margin-bottom:14px;
+    }
+    .about strong{color:#000}
+    .about-card{
+      min-height:390px;
+      position:relative;
+      border-radius:16px;
+      overflow:hidden;
+      background:
+        linear-gradient(180deg,rgba(201,151,53,.05),rgba(0,0,0,.78)),
+        radial-gradient(circle at 50% 22%,rgba(255,255,255,.26),rgba(255,255,255,0) 33%),
+        linear-gradient(120deg,#d9aa50,#1b1408);
+      box-shadow:0 24px 70px rgba(0,0,0,.16);
+    }
+    .about-card:before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(180deg,rgba(255,255,255,.08),rgba(0,0,0,.2)),
+        repeating-linear-gradient(90deg,transparent 0 56px,rgba(0,0,0,.24) 56px 88px,transparent 88px 132px);
+      opacity:.56;
+    }
+    .stats{
+      position:absolute;
+      left:28px;
+      right:28px;
+      bottom:24px;
+      background:#050505;
+      border-radius:12px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      color:#fff;
+      overflow:hidden;
+    }
+    .stat{
+      text-align:center;
+      padding:28px 18px;
+      border-right:1px solid rgba(201,151,53,.78);
+    }
+    .stat:last-child{border-right:none}
+    .stat strong{
+      display:block;
+      color:var(--gold);
+      font-size:38px;
+      line-height:1;
+    }
+    .stat span{
+      display:block;
+      color:#fff;
+      text-transform:uppercase;
+      font-size:12px;
+      line-height:1.35;
+      margin-top:8px;
+    }
 
-footer{
-  background:#050505;
-  color:#aaa;
-  padding:34px 0;
-  border-top:1px solid rgba(255,255,255,.08);
-}
-.footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    .sections{
+      background:#f7f6f1;
+      color:#090909;
+      padding:96px 0;
+    }
+    .section-head{
+      max-width:760px;
+      margin-bottom:42px;
+    }
+    .card-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+    .card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:32px;
+      min-height:240px;
+      transition:.22s ease;
+    }
+    .card:hover{transform:translateY(-4px);box-shadow:0 24px 55px rgba(0,0,0,.08)}
+    .card.dark{background:#050505;color:#fff;border-color:#050505}
+    .card h3{
+      font-size:23px;
+      text-transform:uppercase;
+      line-height:1.12;
+      margin-bottom:14px;
+      letter-spacing:-.035em;
+    }
+    .card p{color:#555;font-size:16px;line-height:1.65}
+    .card.dark p{color:#d7d7d7}
 
-@media(max-width:1000px){
-  .nav{height:auto;min-height:94px}
-  .nav-links{display:none}
-  .site-logo{width:145px}
-  .hero:after,.car-line,.headlight,.grill{display:none}
-  .hero,.hero-inner{min-height:auto}
-  .hero-copy{padding:58px 0 100px}
-  .hero-logo{width:320px}
-  .features{grid-template-columns:1fr;transform:translateY(-35px)}
-  .feature{border-right:0;border-bottom:1px solid #E8E3DA}
-  .feature:last-child{border-bottom:0}
-  .about-grid{grid-template-columns:1fr}
-  .stats{grid-template-columns:1fr}
-  .stat{border-right:0;border-bottom:1px solid rgba(201,151,53,.8)}
-  .stat:last-child{border-bottom:0}
-}
-</style>
+    .join{
+      background:#050505;
+      color:#fff;
+      padding:100px 0;
+    }
+    .join-grid{
+      display:grid;
+      grid-template-columns:.85fr 1.15fr;
+      gap:48px;
+      align-items:start;
+      background:linear-gradient(135deg,#080808,#151515);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:24px;
+      padding:48px;
+      box-shadow:0 30px 90px rgba(0,0,0,.35);
+    }
+    .join p{color:#d3d3d3;font-size:18px;line-height:1.65}
+    form{display:grid;gap:14px}
+    input,textarea{
+      width:100%;
+      background:rgba(255,255,255,.07);
+      border:1px solid rgba(255,255,255,.16);
+      border-radius:10px;
+      padding:16px;
+      color:#fff;
+      font:inherit;
+      outline:none;
+    }
+    textarea{min-height:110px;resize:vertical}
+    input::placeholder,textarea::placeholder{color:#aaa}
+    button{
+      border:none;
+      cursor:pointer;
+    }
+
+    footer{
+      background:#000;
+      color:#aaa;
+      border-top:1px solid rgba(255,255,255,.08);
+      padding:36px 0;
+    }
+    .footer-inner{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .footer-logo{width:130px;height:auto}
+
+    @media(max-width:1050px){
+      .nav{min-height:96px}
+      .nav-menu{display:none}
+      .site-logo{width:135px}
+      .hero-car{display:none}
+      .hero:before{background:rgba(0,0,0,.38)}
+      .hero,.hero-inner{min-height:auto}
+      .hero-inner{padding:58px 0 105px}
+      .hero-logo{width:320px}
+      .features{grid-template-columns:1fr;transform:translateY(-38px)}
+      .feature{border-right:0;border-bottom:1px solid var(--line)}
+      .feature:last-child{border-bottom:0}
+      .about-grid,.join-grid{grid-template-columns:1fr}
+      .card-grid{grid-template-columns:1fr}
+      .stats{grid-template-columns:1fr}
+      .stat{border-right:0;border-bottom:1px solid rgba(201,151,53,.78)}
+      .stat:last-child{border-bottom:0}
+    }
+  </style>
 </head>
+
 <body>
-<header class="site-header">
-  <div class="container nav">
-    <a class="logo-link" href="#top" aria-label="Black Dealer Network home">
-      <img class="site-logo" src="assets/bdn-logo.png" alt="Black Dealer Network logo">
-    </a>
-    <nav class="nav-links" aria-label="Primary navigation">
-      <a class="active" href="#top">Home</a>
-      <a href="#about">About</a>
-      <a href="#membership">Membership</a>
-      <a href="#resources">Resources</a>
-      <a href="#partnerships">Partnerships</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <a class="nav-cta" href="#contact">Join the Network</a>
-  </div>
-</header>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#top" class="logo-link" aria-label="Black Dealer Network home">
+        <img src="assets/bdn-logo.png" alt="Black Dealer Network logo" class="site-logo" />
+      </a>
 
-<main id="top">
-  <section class="hero">
-    <div class="car-line"></div>
-    <div class="headlight"></div>
-    <div class="grill"></div>
-    <div class="container hero-inner">
-      <div class="hero-copy">
-        <img class="hero-logo" src="assets/bdn-logo.png" alt="Black Dealer Network logo">
-        <div class="pill"><span class="pill-dot"></span> Founding Members Now Open</div>
-        <h1>The National Network for <span class="gold-text">Black Auto Dealers.</span></h1>
-        <div class="gold-line"></div>
-        <p class="lead">Connect. Grow. Access Capital. Build Ownership.</p>
-        <p>Black Dealer Network (BDN) brings dealers together, creates opportunities, and opens doors to the resources you need to scale your dealership and build generational wealth.</p>
-        <div class="actions">
-          <a class="btn-gold" href="#contact">Join the Founding Members</a>
-          <a class="btn-outline" href="#about">Watch Video</a>
+      <nav class="nav-menu" aria-label="Primary navigation">
+        <a href="#top" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#membership">Membership</a>
+        <a href="#resources">Resources</a>
+        <a href="#partnerships">Partnerships</a>
+        <a href="#join">Contact</a>
+      </nav>
+
+      <a href="#join" class="cta">Join the Network</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-car" aria-hidden="true"></div>
+
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <img src="assets/bdn-logo.png" alt="Black Dealer Network logo" class="hero-logo" />
+
+          <div class="pill"><span class="dot"></span> Founding Members Now Open</div>
+
+          <h1>The National Network for <span class="gold-text">Black Auto Dealers.</span></h1>
+          <div class="gold-line"></div>
+
+          <p class="lead">Connect. Grow. Access Capital. Build Ownership.</p>
+          <p>Black Dealer Network (BDN) brings dealers together, creates opportunities, and opens doors to the resources you need to scale your dealership and build generational wealth.</p>
+
+          <div class="actions">
+            <a href="#join" class="btn-primary">Join the Founding Members</a>
+            <a href="#about" class="btn-secondary">Watch Video</a>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="feature-wrap">
-    <div class="container">
-      <div class="features">
-        <article class="feature">
-          <div class="icon">◎</div>
-          <div><h3>National Community</h3><p>Dealers across the country, stronger together.</p></div>
-        </article>
-        <article class="feature">
-          <div class="icon">↗</div>
-          <div><h3>Grow Your Business</h3><p>Proven strategies and resources that drive results.</p></div>
-        </article>
-        <article class="feature">
-          <div class="icon">$</div>
-          <div><h3>Access Capital</h3><p>Connections to funding and lending partners.</p></div>
-        </article>
-        <article class="feature">
-          <div class="icon">◇</div>
-          <div><h3>Protect & Prosper</h3><p>Tools, partnerships, and support you can trust.</p></div>
-        </article>
-      </div>
-    </div>
-  </section>
+    <section class="feature-band">
+      <div class="container">
+        <div class="features">
+          <article class="feature">
+            <div class="icon">◎</div>
+            <div><h3>National Community</h3><p>Dealers across the country, stronger together.</p></div>
+          </article>
 
-  <section class="about" id="about">
-    <div class="container about-grid">
-      <div>
-        <div class="label">Why Black Dealer Network Exists</div>
-        <h2>Because ownership changes everything.</h2>
-        <div class="gold-line"></div>
-        <p>Black dealers are the backbone of our communities and the economy. But too often, we operate in silos facing the same challenges alone.</p>
-        <p><strong>BDN was created to change that.</strong> We’re building a powerful network that connects, educates, funds, and empowers Black auto dealers to thrive for generations.</p>
-        <div class="actions">
-          <a class="btn-gold" href="#contact">Learn More About Our Mission</a>
+          <article class="feature">
+            <div class="icon">↗</div>
+            <div><h3>Grow Your Business</h3><p>Proven strategies and resources that drive results.</p></div>
+          </article>
+
+          <article class="feature">
+            <div class="icon">$</div>
+            <div><h3>Access Capital</h3><p>Connections to funding and lending partners.</p></div>
+          </article>
+
+          <article class="feature">
+            <div class="icon">◇</div>
+            <div><h3>Protect & Prosper</h3><p>Tools, partnerships, and support you can trust.</p></div>
+          </article>
         </div>
       </div>
-      <div class="photo-card" aria-label="Black Dealer Network community visual">
-        <div class="stats">
-          <div class="stat"><strong>10K+</strong><span>Dealers<br>and growing</span></div>
-          <div class="stat"><strong>50</strong><span>States<br>and counting</span></div>
-          <div class="stat"><strong>1</strong><span>Mission<br>our community</span></div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="container about-grid">
+        <div>
+          <div class="label">Why Black Dealer Network Exists</div>
+          <h2>Because ownership changes everything.</h2>
+          <div class="gold-line"></div>
+          <p>Black dealers are the backbone of our communities and the economy. But too often, we operate in silos, facing the same challenges alone.</p>
+          <p><strong>BDN was created to change that.</strong> We’re building a powerful network that connects, educates, funds, and empowers Black auto dealers to thrive for generations.</p>
+          <div class="actions">
+            <a href="#membership" class="btn-primary">Learn More About Our Mission</a>
+          </div>
+        </div>
+
+        <div class="about-card">
+          <div class="stats">
+            <div class="stat"><strong>10K+</strong><span>Dealers<br />and growing</span></div>
+            <div class="stat"><strong>50</strong><span>States<br />and counting</span></div>
+            <div class="stat"><strong>1</strong><span>Mission<br />our community</span></div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-</main>
+    </section>
 
-<footer id="contact">
-  <div class="container footer-inner">
-    <div>© 2026 Black Dealer Network. All rights reserved.</div>
-    <div>Connect. Grow. Own.</div>
-  </div>
-</footer>
+    <section id="membership" class="sections">
+      <div class="container">
+        <div class="section-head">
+          <div class="label">Membership</div>
+          <h2>Built for dealers at every stage.</h2>
+        </div>
+
+        <div class="card-grid">
+          <article class="card">
+            <h3>Independent Dealers</h3>
+            <p>For licensed dealers who want stronger relationships, practical resources, access to partners, and a national dealer community.</p>
+          </article>
+
+          <article class="card dark">
+            <h3>Aspiring Dealers</h3>
+            <p>For future dealers working toward licensing, capital, operations, compliance, and a stronger launch path.</p>
+          </article>
+
+          <article class="card">
+            <h3>Growth Operators</h3>
+            <p>For dealers ready to scale inventory, improve systems, strengthen vendor relationships, and build repeatable growth.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="resources" class="sections" style="padding-top:0;">
+      <div class="container">
+        <div class="section-head">
+          <div class="label">Resources</div>
+          <h2>Practical tools for dealer growth.</h2>
+        </div>
+
+        <div class="card-grid">
+          <article class="card">
+            <h3>Licensing & Compliance</h3>
+            <p>Support for dealers navigating licensing, state requirements, operating standards, insurance, and readiness.</p>
+          </article>
+
+          <article class="card">
+            <h3>Capital & Funding</h3>
+            <p>Connections to floorplans, lenders, financing partners, and education that improves capital readiness.</p>
+          </article>
+
+          <article class="card">
+            <h3>Vendor Ecosystem</h3>
+            <p>Access to trusted partners for DMS, warranties, CRM, marketing, insurance, training, and dealer technology.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="partnerships" class="sections" style="padding-top:0;">
+      <div class="container">
+        <div class="section-head">
+          <div class="label">Strategic Partnerships</div>
+          <h2>Access an underserved, high-potential dealer community.</h2>
+        </div>
+
+        <div class="card-grid">
+          <article class="card">
+            <h3>Lenders</h3>
+            <p>Build education-driven relationships with dealers seeking capital access, floorplan support, and funding pathways.</p>
+          </article>
+
+          <article class="card">
+            <h3>Vendors</h3>
+            <p>Connect with dealers seeking DMS, CRM, warranty, insurance, auction, marketing, and technology solutions.</p>
+          </article>
+
+          <article class="card">
+            <h3>Associations</h3>
+            <p>BDN can complement organizations like GIADA, NIADA, MAADA, and NAMAD through modern community-driven outreach.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="join" class="join">
+      <div class="container join-grid">
+        <div>
+          <div class="label">Join BDN</div>
+          <h2>Become a Founding Member.</h2>
+          <p>Submit your information below. Early members will help shape the direction, programming, partnerships, and national reach of Black Dealer Network.</p>
+        </div>
+
+        <form action="https://formspree.io/f/your-form-id" method="POST">
+          <input type="text" name="name" placeholder="Full name" required />
+          <input type="email" name="email" placeholder="Email address" required />
+          <input type="text" name="dealership" placeholder="Dealership or business name" />
+          <input type="text" name="state" placeholder="City and state" />
+          <textarea name="challenge" placeholder="What is your biggest dealer challenge right now?"></textarea>
+          <button class="btn-primary" type="submit">Join the Founding Members</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <img src="assets/bdn-logo.png" alt="Black Dealer Network logo" class="footer-logo" />
+      <div>© 2026 Black Dealer Network. All rights reserved.</div>
+      <div>Connect. Grow. Own.</div>
+    </div>
+  </footer>
 </body>
 </html>
