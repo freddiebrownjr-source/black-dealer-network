@@ -1,195 +1,463 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Black Dealer Network | Connect. Grow. Own.</title>
-  <meta name="description" content="Black Dealer Network is a national organization for Black auto dealers focused on ownership, growth, access to capital, partnerships, education, advocacy, and generational wealth." />
-  <link rel="icon" href="assets/bdn-logo.svg" />
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Black Dealer Network | The National Network for Black Auto Dealers</title>
+<meta name="description" content="Black Dealer Network is the national network for Black auto dealers focused on growth, access, capital, partnerships, advocacy, and ownership." />
+<link rel="icon" href="assets/favicon.png" />
+<style>
+:root{
+  --black:#050505;
+  --deep:#000;
+  --charcoal:#101010;
+  --gold:#C99735;
+  --gold2:#E7BE62;
+  --gold3:#8D6418;
+  --white:#fff;
+  --muted:#D8D8D8;
+  --light:#F6F5F1;
+  --line:rgba(255,255,255,.11);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  background:var(--black);
+  color:var(--white);
+}
+a{text-decoration:none;color:inherit}
+.container{width:min(1240px,calc(100% - 44px));margin:auto}
+
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(0,0,0,.96);
+  border-bottom:1px solid rgba(255,255,255,.08);
+  backdrop-filter:blur(14px);
+}
+.nav{
+  height:132px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:28px;
+}
+.logo-link{
+  display:flex;
+  align-items:center;
+}
+.site-logo{
+  width:175px;
+  height:auto;
+  display:block;
+  object-fit:contain;
+  filter:drop-shadow(0 14px 26px rgba(201,151,53,.18));
+}
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:34px;
+  font-size:13px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.02em;
+}
+.nav-links a{
+  opacity:.9;
+  position:relative;
+  padding:10px 0;
+}
+.nav-links a:hover,
+.nav-links a.active{opacity:1;color:var(--gold2)}
+.nav-links a.active:after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-18px;
+  width:46px;
+  height:3px;
+  background:var(--gold);
+}
+.nav-cta,.btn-gold{
+  background:linear-gradient(180deg,var(--gold2),var(--gold));
+  color:#050505;
+  padding:16px 28px;
+  border-radius:8px;
+  font-size:14px;
+  font-weight:900;
+  text-transform:uppercase;
+  box-shadow:0 18px 38px rgba(201,151,53,.18);
+}
+.nav-cta:hover,.btn-gold:hover{transform:translateY(-2px)}
+
+.hero{
+  position:relative;
+  min-height:720px;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 73% 42%,rgba(201,151,53,.24),rgba(0,0,0,0) 33%),
+    linear-gradient(90deg,#050505 0%,#070707 48%,#0c0c0c 100%);
+  border-bottom:1px solid rgba(201,151,53,.4);
+}
+.hero:after{
+  content:"";
+  position:absolute;
+  right:-6vw;
+  top:60px;
+  width:58vw;
+  height:610px;
+  background:
+    radial-gradient(circle at 38% 44%,rgba(255,255,255,.12),rgba(255,255,255,0) 18%),
+    linear-gradient(155deg,rgba(255,255,255,.12),rgba(255,255,255,.015) 35%,rgba(0,0,0,.55)),
+    #080808;
+  border-radius:300px 0 0 110px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 0 100px rgba(0,0,0,.8);
+  opacity:.92;
+}
+.car-line{
+  position:absolute;
+  right:0;
+  top:240px;
+  width:48vw;
+  height:3px;
+  background:linear-gradient(90deg,rgba(201,151,53,0),rgba(201,151,53,.72),rgba(201,151,53,0));
+  z-index:2;
+}
+.headlight{
+  position:absolute;
+  right:31vw;
+  top:355px;
+  width:235px;
+  height:47px;
+  border:6px solid rgba(255,255,255,.95);
+  border-top-color:rgba(255,255,255,.34);
+  border-radius:40px 12px 34px 10px;
+  transform:skewX(-18deg);
+  box-shadow:0 0 24px rgba(255,255,255,.35);
+  z-index:3;
+}
+.grill{
+  position:absolute;
+  right:8vw;
+  top:420px;
+  width:310px;
+  height:150px;
+  background:repeating-linear-gradient(0deg,rgba(201,151,53,.34) 0 3px,rgba(255,255,255,.035) 3px 18px);
+  opacity:.65;
+  z-index:3;
+}
+
+.hero-inner{
+  position:relative;
+  z-index:5;
+  min-height:720px;
+  display:flex;
+  align-items:center;
+}
+.hero-copy{
+  max-width:650px;
+  padding:56px 0 70px;
+}
+.hero-logo{
+  width:420px;
+  max-width:100%;
+  margin-bottom:28px;
+  display:block;
+  filter:drop-shadow(0 26px 45px rgba(0,0,0,.45));
+}
+.pill{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:9px 15px;
+  border:1px solid rgba(201,151,53,.45);
+  border-radius:999px;
+  background:rgba(255,255,255,.045);
+  color:#fff;
+  font-size:14px;
+  font-weight:800;
+  text-transform:uppercase;
+  margin-bottom:25px;
+}
+.pill-dot{width:10px;height:10px;border-radius:999px;background:var(--gold);box-shadow:0 0 15px rgba(201,151,53,.8)}
+h1{
+  font-size:clamp(48px,6vw,82px);
+  line-height:.98;
+  letter-spacing:-.055em;
+  font-weight:950;
+  text-transform:uppercase;
+  margin-bottom:24px;
+}
+.gold-text{
+  background:linear-gradient(180deg,#F6D98D 0%,#C99735 55%,#8B6217 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.gold-line{width:74px;height:3px;background:var(--gold);margin:24px 0}
+.lead{
+  font-size:22px;
+  font-weight:800;
+  margin-bottom:14px;
+}
+.hero-copy p:not(.lead){
+  color:#ddd;
+  font-size:18px;
+  line-height:1.65;
+  max-width:610px;
+}
+.actions{
+  display:flex;
+  gap:18px;
+  margin-top:36px;
+  flex-wrap:wrap;
+}
+.btn-outline{
+  border:1px solid var(--gold);
+  color:#fff;
+  padding:16px 28px;
+  border-radius:8px;
+  font-size:14px;
+  font-weight:900;
+  text-transform:uppercase;
+}
+
+.feature-wrap{
+  background:#fff;
+  color:#111;
+  position:relative;
+  z-index:10;
+}
+.features{
+  transform:translateY(-45px);
+  background:#fff;
+  border:1px solid #E8E3DA;
+  border-radius:18px;
+  box-shadow:0 24px 70px rgba(0,0,0,.22);
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  overflow:hidden;
+}
+.feature{
+  padding:30px 28px;
+  display:grid;
+  grid-template-columns:56px 1fr;
+  gap:18px;
+  align-items:center;
+  border-right:1px solid #E8E3DA;
+}
+.feature:last-child{border-right:0}
+.icon{
+  width:48px;
+  height:48px;
+  border:2px solid var(--gold);
+  color:var(--gold);
+  border-radius:999px;
+  display:grid;
+  place-items:center;
+  font-size:24px;
+  font-weight:900;
+}
+.feature h3{
+  font-size:16px;
+  text-transform:uppercase;
+  margin-bottom:6px;
+}
+.feature p{
+  color:#444;
+  font-size:14px;
+  line-height:1.45;
+}
+
+.about{
+  background:#fff;
+  color:#080808;
+  padding:40px 0 100px;
+}
+.about-grid{
+  display:grid;
+  grid-template-columns:.9fr 1.1fr;
+  gap:64px;
+  align-items:center;
+}
+.label{
+  color:var(--gold);
+  text-transform:uppercase;
+  font-size:13px;
+  letter-spacing:.12em;
+  font-weight:900;
+  margin-bottom:14px;
+}
+h2{
+  font-size:clamp(38px,4.8vw,62px);
+  line-height:1.03;
+  text-transform:uppercase;
+  letter-spacing:-.055em;
+}
+.about p{
+  color:#333;
+  font-size:18px;
+  line-height:1.75;
+  margin-top:20px;
+}
+.about strong{color:#000}
+.photo-card{
+  min-height:390px;
+  border-radius:16px;
+  overflow:hidden;
+  position:relative;
+  background:
+    linear-gradient(180deg,rgba(201,151,53,.28),rgba(0,0,0,.65)),
+    radial-gradient(circle at 50% 30%,rgba(255,255,255,.28),rgba(255,255,255,0) 34%),
+    linear-gradient(120deg,#D6A956,#21170A);
+  box-shadow:0 22px 70px rgba(0,0,0,.14);
+}
+.photo-card:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    repeating-linear-gradient(90deg,transparent 0 55px,rgba(0,0,0,.22) 55px 85px,transparent 85px 130px);
+  opacity:.5;
+}
+.stats{
+  position:absolute;
+  left:28px;
+  right:28px;
+  bottom:24px;
+  background:#050505;
+  color:#fff;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  border-radius:12px;
+  overflow:hidden;
+}
+.stat{
+  padding:28px 18px;
+  text-align:center;
+  border-right:1px solid rgba(201,151,53,.8);
+}
+.stat:last-child{border-right:0}
+.stat strong{display:block;color:var(--gold);font-size:36px}
+.stat span{display:block;color:#fff;text-transform:uppercase;font-size:12px;margin-top:8px;line-height:1.35}
+
+footer{
+  background:#050505;
+  color:#aaa;
+  padding:34px 0;
+  border-top:1px solid rgba(255,255,255,.08);
+}
+.footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+@media(max-width:1000px){
+  .nav{height:auto;min-height:94px}
+  .nav-links{display:none}
+  .site-logo{width:145px}
+  .hero:after,.car-line,.headlight,.grill{display:none}
+  .hero,.hero-inner{min-height:auto}
+  .hero-copy{padding:58px 0 100px}
+  .hero-logo{width:320px}
+  .features{grid-template-columns:1fr;transform:translateY(-35px)}
+  .feature{border-right:0;border-bottom:1px solid #E8E3DA}
+  .feature:last-child{border-bottom:0}
+  .about-grid{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr}
+  .stat{border-right:0;border-bottom:1px solid rgba(201,151,53,.8)}
+  .stat:last-child{border-bottom:0}
+}
+</style>
 </head>
 <body>
-  <div class="page-shell">
-    <header class="navbar">
-      <a class="brand" href="#home" aria-label="Black Dealer Network home">
-        <img src="assets/bdn-logo.svg" alt="BDN logo" />
-        <span>
-          <strong>Black Dealer Network</strong>
-          <small>Connect. Grow. Own.</small>
-        </span>
-      </a>
-
-      <button class="mobile-menu" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
-
-      <nav class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#membership">Membership</a>
-        <a href="#resources">Resources</a>
-        <a href="#events">Events</a>
-        <a href="#partnerships">Partnerships</a>
-        <a href="#contact">Contact</a>
-      </nav>
-
-      <a class="nav-cta" href="#join">Join the Network</a>
-    </header>
-
-    <main>
-      <section id="home" class="hero section">
-        <div class="hero-copy reveal">
-          <div class="eyebrow">Founding members now open</div>
-          <h1>The National Network for <span>Black Auto Dealers.</span></h1>
-          <div class="gold-line"></div>
-          <h2>Connect. Grow. Access Capital. Build Ownership.</h2>
-          <p>Black Dealer Network empowers Black auto dealers through networking, partnerships, education, resources, and access to opportunities nationwide.</p>
-          <div class="button-row">
-            <a class="primary-btn" href="#join">Join the Network <span>→</span></a>
-            <a class="secondary-btn" href="#about">Learn More <span>›</span></a>
-          </div>
-        </div>
-
-        <div class="hero-visual reveal">
-          <div class="logo-stage">
-            <img src="assets/bdn-logo.svg" alt="BDN luxury mark" />
-          </div>
-          <div class="vehicle-card">
-            <div class="light-beam"></div>
-            <div class="car-silhouette">
-              <div class="roof"></div>
-              <div class="body"></div>
-              <div class="wheel left"></div>
-              <div class="wheel right"></div>
-            </div>
-            <p>Luxury automotive leadership. National scale.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="feature-strip section">
-        <article class="feature-card reveal">
-          <span>01</span><h3>National Community</h3><p>A connected network of Black dealers, operators, founders, and industry allies.</p>
-        </article>
-        <article class="feature-card reveal">
-          <span>02</span><h3>Business Growth</h3><p>Practical playbooks, peer learning, and operator-led growth support.</p>
-        </article>
-        <article class="feature-card reveal">
-          <span>03</span><h3>Access Capital</h3><p>Connections to lenders, capital partners, and funding education.</p>
-        </article>
-        <article class="feature-card reveal">
-          <span>04</span><h3>Strategic Partnerships</h3><p>Relationship access across auctions, DMS, warranty, insurance, and tech.</p>
-        </article>
-        <article class="feature-card reveal">
-          <span>05</span><h3>Advocacy & Voice</h3><p>A stronger national voice for ownership, access, and generational wealth.</p>
-        </article>
-      </section>
-
-      <section id="about" class="about section">
-        <div class="section-heading reveal">
-          <div class="eyebrow">Why BDN exists</div>
-          <h2>Because ownership changes everything.</h2>
-          <p>BDN is built to help Black dealers move from isolated operators to connected owners with access to knowledge, capital, strategic partners, and a national platform.</p>
-        </div>
-
-        <div class="about-grid">
-          <div class="about-panel reveal">
-            <h3>Community with commercial purpose.</h3>
-            <p>We bring independent dealers, aspiring dealers, growth operators, lenders, vendors, and industry partners into one premium ecosystem designed around measurable growth.</p>
-          </div>
-          <div class="stats-grid reveal">
-            <div><strong>National</strong><span>Dealer community</span></div>
-            <div><strong>Capital</strong><span>Access education</span></div>
-            <div><strong>Growth</strong><span>Operator playbooks</span></div>
-            <div><strong>Legacy</strong><span>Generational wealth</span></div>
-          </div>
-        </div>
-      </section>
-
-      <section id="membership" class="section">
-        <div class="section-heading reveal">
-          <div class="eyebrow">Membership</div>
-          <h2>Built for every stage of ownership.</h2>
-        </div>
-        <div class="card-grid three">
-          <article class="premium-card reveal"><h3>Independent Dealers</h3><p>For licensed dealers ready to grow operations, partnerships, capital access, and market presence.</p><a href="#join">Apply now →</a></article>
-          <article class="premium-card reveal highlighted"><h3>Aspiring Dealers</h3><p>For future owners learning the path to licensing, compliance, inventory, funding, and launch.</p><a href="#join">Start here →</a></article>
-          <article class="premium-card reveal"><h3>Growth Operators</h3><p>For dealer principals, GMs, wholesalers, and operators scaling beyond survival mode.</p><a href="#join">Scale with BDN →</a></article>
-        </div>
-      </section>
-
-      <section id="resources" class="resources section">
-        <div class="section-heading reveal">
-          <div class="eyebrow">Resources</div>
-          <h2>Modern dealer tools, education, and access.</h2>
-        </div>
-        <div class="resource-grid reveal">
-          <span>Licensing Support</span><span>Dealer Operations</span><span>DMS Resources</span><span>Funding Access</span>
-          <span>Warranty Partners</span><span>Insurance</span><span>Compliance</span><span>Growth Tools</span>
-        </div>
-      </section>
-
-      <section id="events" class="events section">
-        <div class="section-heading reveal">
-          <div class="eyebrow">Events</div>
-          <h2>High-signal rooms for serious operators.</h2>
-        </div>
-        <div class="card-grid events-grid">
-          <article class="event-card reveal"><span>Networking</span><h3>National Networking Events</h3><p>Premium gatherings designed for relationship building and opportunity creation.</p></article>
-          <article class="event-card reveal"><span>Regional</span><h3>Dealer Meetups</h3><p>Local and regional meetups for operators, lenders, vendors, and partners.</p></article>
-          <article class="event-card reveal"><span>Virtual</span><h3>Virtual Sessions</h3><p>Focused conversations on capital, compliance, inventory, marketing, and tech.</p></article>
-          <article class="event-card reveal"><span>Training</span><h3>Training Workshops</h3><p>Operator-led education built around real dealership growth challenges.</p></article>
-          <article class="event-card reveal"><span>Partners</span><h3>Partner Events</h3><p>Curated sessions with lenders, auctions, warranty partners, insurers, and DMS providers.</p></article>
-        </div>
-      </section>
-
-      <section id="partnerships" class="partnerships section">
-        <div class="section-heading reveal">
-          <div class="eyebrow">Partnerships</div>
-          <h2>A premium channel into the Black dealer economy.</h2>
-          <p>BDN creates a trusted bridge between dealers and the companies that help dealerships grow.</p>
-        </div>
-        <div class="partner-cloud reveal">
-          <span>Lenders</span><span>Auctions</span><span>Warranty Companies</span><span>DMS Providers</span><span>Insurance Companies</span><span>Automotive Tech</span><span>GIADA</span><span>NIADA</span><span>MAADA</span><span>NAMAD</span>
-        </div>
-      </section>
-
-      <section id="join" class="join section">
-        <div class="join-copy reveal">
-          <div class="eyebrow">Join the Network</div>
-          <h2>Build with the national movement for Black auto dealers.</h2>
-          <p>Tell us who you are and where you are trying to grow. BDN is designed for ownership, access, partnerships, and scale.</p>
-        </div>
-        <form class="signup-form reveal">
-          <label><span>Name</span><input type="text" name="name" placeholder="Your name" /></label>
-          <label><span>Email</span><input type="email" name="email" placeholder="you@example.com" /></label>
-          <label><span>Dealership</span><input type="text" name="dealership" placeholder="Dealership name" /></label>
-          <label><span>State</span><input type="text" name="state" placeholder="Georgia" /></label>
-          <label class="full"><span>Biggest Challenge</span><textarea name="challenge" placeholder="Capital, inventory, licensing, growth, operations, partnerships..."></textarea></label>
-          <button type="submit">Join the Network <span>→</span></button>
-        </form>
-      </section>
-    </main>
-
-    <footer id="contact" class="footer">
-      <div class="footer-brand">
-        <img src="assets/bdn-logo.svg" alt="BDN logo" />
-        <div>
-          <strong>Black Dealer Network</strong>
-          <p>Connect. Grow. Own.</p>
-        </div>
-      </div>
-      <div class="footer-links">
-        <a href="#about">About</a>
-        <a href="#membership">Membership</a>
-        <a href="#resources">Resources</a>
-        <a href="#events">Events</a>
-        <a href="#partnerships">Partnerships</a>
-      </div>
-      <p class="copyright">© 2026 Black Dealer Network. All rights reserved.</p>
-    </footer>
+<header class="site-header">
+  <div class="container nav">
+    <a class="logo-link" href="#top" aria-label="Black Dealer Network home">
+      <img class="site-logo" src="assets/bdn-logo.png" alt="Black Dealer Network logo">
+    </a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a class="active" href="#top">Home</a>
+      <a href="#about">About</a>
+      <a href="#membership">Membership</a>
+      <a href="#resources">Resources</a>
+      <a href="#partnerships">Partnerships</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="nav-cta" href="#contact">Join the Network</a>
   </div>
+</header>
 
-  <script src="script.js"></script>
+<main id="top">
+  <section class="hero">
+    <div class="car-line"></div>
+    <div class="headlight"></div>
+    <div class="grill"></div>
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <img class="hero-logo" src="assets/bdn-logo.png" alt="Black Dealer Network logo">
+        <div class="pill"><span class="pill-dot"></span> Founding Members Now Open</div>
+        <h1>The National Network for <span class="gold-text">Black Auto Dealers.</span></h1>
+        <div class="gold-line"></div>
+        <p class="lead">Connect. Grow. Access Capital. Build Ownership.</p>
+        <p>Black Dealer Network (BDN) brings dealers together, creates opportunities, and opens doors to the resources you need to scale your dealership and build generational wealth.</p>
+        <div class="actions">
+          <a class="btn-gold" href="#contact">Join the Founding Members</a>
+          <a class="btn-outline" href="#about">Watch Video</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="feature-wrap">
+    <div class="container">
+      <div class="features">
+        <article class="feature">
+          <div class="icon">◎</div>
+          <div><h3>National Community</h3><p>Dealers across the country, stronger together.</p></div>
+        </article>
+        <article class="feature">
+          <div class="icon">↗</div>
+          <div><h3>Grow Your Business</h3><p>Proven strategies and resources that drive results.</p></div>
+        </article>
+        <article class="feature">
+          <div class="icon">$</div>
+          <div><h3>Access Capital</h3><p>Connections to funding and lending partners.</p></div>
+        </article>
+        <article class="feature">
+          <div class="icon">◇</div>
+          <div><h3>Protect & Prosper</h3><p>Tools, partnerships, and support you can trust.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="container about-grid">
+      <div>
+        <div class="label">Why Black Dealer Network Exists</div>
+        <h2>Because ownership changes everything.</h2>
+        <div class="gold-line"></div>
+        <p>Black dealers are the backbone of our communities and the economy. But too often, we operate in silos facing the same challenges alone.</p>
+        <p><strong>BDN was created to change that.</strong> We’re building a powerful network that connects, educates, funds, and empowers Black auto dealers to thrive for generations.</p>
+        <div class="actions">
+          <a class="btn-gold" href="#contact">Learn More About Our Mission</a>
+        </div>
+      </div>
+      <div class="photo-card" aria-label="Black Dealer Network community visual">
+        <div class="stats">
+          <div class="stat"><strong>10K+</strong><span>Dealers<br>and growing</span></div>
+          <div class="stat"><strong>50</strong><span>States<br>and counting</span></div>
+          <div class="stat"><strong>1</strong><span>Mission<br>our community</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="container footer-inner">
+    <div>© 2026 Black Dealer Network. All rights reserved.</div>
+    <div>Connect. Grow. Own.</div>
+  </div>
+</footer>
 </body>
 </html>
